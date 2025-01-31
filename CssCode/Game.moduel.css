@@ -1,0 +1,104 @@
+/* Apply the reset only to the game section */
+.game-container {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.status p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+
+/* Board styles */
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    background-color: #333;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+/* Square styles */
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #eaeaea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: #333;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover effect */
+.square:hover {
+    background-color: #d1d1d1;
+    transform: scale(1.05);
+}
+
+/* Active effect */
+.square:active {
+    background-color: #bbb;
+    transform: scale(0.95);
+}
+
+/* Prevent focus outline */
+.square:focus {
+    outline: none;
+}
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+    .square {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .board {
+        grid-template-columns: repeat(3, 70px);
+        grid-template-rows: repeat(3, 70px);
+    }
+    .square {
+        width: 70px;
+        height: 70px;
+        font-size: 1.2rem;
+    }
+}
+
+/* Winning square styles */
+.square.winning {
+    background-color: #ffcc00;
+    border: 3px solid #ff9900;
+    animation: glow 0.8s ease-in-out infinite alternate;
+}
+
+/* Glowing animation for winning squares */
+@keyframes glow {
+    0% {
+        box-shadow: 0 0 5px #ffcc00, 0 0 10px #ffcc00, 0 0 15px #ff9900;
+    }
+    100% {
+        box-shadow: 0 0 20px #ffcc00, 0 0 30px #ffcc00, 0 0 40px #ff9900;
+    }
+}
+
+
